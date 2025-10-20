@@ -48,6 +48,7 @@ Revision 6.7 // CONFIDENTIAL — Meta Text (IBM Plex Sans)
 
 ## 🧱 Logo System
 
+### Great America Logo System
 | Element | Description |
 |----------|--------------|
 | **Primary Mark** | Three five-pointed stars above three vertical bars — the *Stars & Bars Emblem*. |
@@ -56,6 +57,16 @@ Revision 6.7 // CONFIDENTIAL — Meta Text (IBM Plex Sans)
 | **Minimum Clear Space** | One bar width on all sides. |
 | **Restricted Uses** | No gradients, drop shadows, or skewed transformations. |
 | **Approved Variants** | Black, white, or Control Blue.|
+
+### T'EFT CO Visual Identity — Typographic Mystery Edition
+| Element | Description |
+|----------|--------------|
+| **Concept** | A faceless global tech conglomerate. The acronym's meaning is unknown, but its power is unquestioned. |
+| **Design Traits** | Text only. Slightly condensed letter spacing; balanced weight for institutional authority. |
+| **Mood** | "Corporate confidence meets quiet threat." |
+| **Typography** | Lastica font with condensed spacing |
+| **Usage** | The logo is intentionally opaque — clean, commanding, and void of warmth. |
+| **Restricted Uses** | Never reveal what T'EFT CO stands for. Maintain mystery and corporate dominance. |
 
 **Sub-Label Examples:**
 - *T’EFT CO — Department of Compliance*
