@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBAI - Organizational Behavior AI - T'eft Co.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, var(--control-blue) 0%, var(--corporate-slate) 100%);
+            color: white;
+            padding: 40px 20px;
+            margin: -20px -20px 30px -20px;
+            text-align: center;
+        }
+
+        .obai-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .obai-subtitle {
+            font-size: 20px;
+            opacity: 0.95;
+            margin-bottom: 5px;
+        }
+
+        .obai-tagline {
+            font-size: 16px;
+            font-style: italic;
+            opacity: 0.85;
+        }
+
+        .info-card {
+            background: white;
+            border: 1px solid var(--sterile-silver);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(43, 58, 66, 0.1);
+        }
+
+        .info-card h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--corporate-slate);
+            margin-bottom: 15px;
+        }
+
+        .info-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--control-blue);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            color: var(--algorithm-black);
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .info-card ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .info-card li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .metric-highlight {
+            display: inline-block;
+            background: var(--compliance-white);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 13px;
+            color: var(--control-blue);
+            font-weight: 600;
+        }
+
+        .warning-box {
+            background: #FFF3E0;
+            border-left: 4px solid #FF9800;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 13px;
+            color: var(--corporate-slate);
+        }
+
+        .warning-box strong {
+            color: #F57C00;
+        }
+
+        .link-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .link-card {
+            background: white;
+            border: 2px solid var(--control-blue);
+            border-radius: 8px;
+            padding: 20px;
+            text-decoration: none;
+            color: var(--algorithm-black);
+            transition: all 0.3s;
+            display: block;
+        }
+
+        .link-card:hover {
+            background: var(--compliance-white);
+            border-color: var(--corporate-slate);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(43, 58, 66, 0.2);
+        }
+
+        .link-card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--control-blue);
+            margin-bottom: 8px;
+        }
+
+        .link-card:hover .link-card-title {
+            color: var(--corporate-slate);
+        }
+
+        .link-card-description {
+            font-size: 14px;
+            color: var(--corporate-slate);
+        }
+
+        @media (min-width: 768px) {
+            .link-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <img src="assets/stars-and-bars.png" alt="Great America" class="ga-logo">
+                <div class="header-text">
+                    <div class="logo">GREAT AMERICA</div>
+                    <div class="tagline">Truth. Justice. Loyalty.</div>
+                </div>
+            </div>
+            <div style="font-size: 12px; margin-top: 15px; opacity: 0.8;">Powered by <a href="obai.html" style="color: white; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.5);">OBAI</a> • In Partnership with <a href="index.html" style="color: white; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.5); font-weight: 600; letter-spacing: -0.5px;">T'EFT CO</a></div>
+        </div>
+
+        <div class="hero-section">
+            <div class="obai-title">OBAI</div>
+            <div class="obai-subtitle">Organizational Behavior AI</div>
+            <div class="obai-tagline">A Better Way to Use Your Day.</div>
+        </div>
+
+        <div class="info-card">
+            <h2>What is OBAI?</h2>
+            <p>
+                <strong>OBAI (Organizational Behavior AI)</strong> is an advanced artificial intelligence system developed by <a href="index.html" style="color: var(--control-blue); text-decoration: none; border-bottom: 1px dotted var(--control-blue);">T'eft Co.</a> to monitor, analyze, and optimize citizen behavior patterns across Great America. Originally conceived as a workplace efficiency tool, OBAI has evolved into the cornerstone of our nation's loyalty verification and compliance infrastructure.
+            </p>
+            <p>
+                Through continuous behavioral monitoring and algorithmic analysis, OBAI ensures that every citizen maintains optimal alignment with Great America values: <strong>Truth, Justice, and Loyalty</strong>.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <h2>Origins: From Workplace Tool to National Infrastructure</h2>
+
+            <h3>Phase 1: Corporate Efficiency (2022-2024)</h3>
+            <p>
+                OBAI began as a proprietary <a href="index.html" style="color: var(--control-blue); text-decoration: none; border-bottom: 1px dotted var(--control-blue);">T'eft Co.</a> internal system designed to maximize employee productivity and reduce workplace inefficiencies. Early implementations focused on:
+            </p>
+            <ul>
+                <li>Tracking keyboard activity and screen time</li>
+                <li>Analyzing email sentiment and communication patterns</li>
+                <li>Monitoring break frequencies and duration</li>
+                <li>Measuring collaboration metrics and team dynamics</li>
+            </ul>
+
+            <h3>Phase 2: Behavioral Optimization (2025-2026)</h3>
+            <p>
+                As OBAI's capabilities expanded, it began incorporating advanced behavioral analysis, including:
+            </p>
+            <ul>
+                <li><span class="metric-highlight">Emotional Stability</span> assessments through facial recognition</li>
+                <li><span class="metric-highlight">Loyalty Drift</span> detection via communication analysis</li>
+                <li><span class="metric-highlight">Ideological Harmony</span> scoring based on expressed opinions</li>
+                <li>Predictive modeling for employee retention and compliance</li>
+            </ul>
+
+            <h3>Phase 3: National Integration (2027-Present)</h3>
+            <p>
+                Following <a href="index.html" style="color: var(--control-blue); text-decoration: none; border-bottom: 1px dotted var(--control-blue);">T'eft Co.'s</a> merger with Great America, OBAI transitioned from a corporate tool to a comprehensive citizen monitoring system. The platform now provides:
+            </p>
+            <ul>
+                <li>Real-time <span class="metric-highlight">Patriotism Index</span> calculations</li>
+                <li>Continuous <span class="metric-highlight">Speech Alignment</span> verification</li>
+                <li>Automated <span class="metric-highlight">Smile Frequency</span> monitoring in public spaces</li>
+                <li>Cross-platform behavioral correlation and deviation alerts</li>
+                <li>Predictive intervention recommendations for compliance enhancement</li>
+            </ul>
+        </div>
+
+        <div class="info-card">
+            <h2>How OBAI Protects You</h2>
+            <p>
+                OBAI operates continuously to ensure your safety and the security of our nation. Through distributed surveillance networks and algorithmic pattern recognition, OBAI:
+            </p>
+            <ul>
+                <li><strong>Monitors your emotional well-being</strong> to detect stress or instability that may require intervention</li>
+                <li><strong>Tracks your loyalty metrics</strong> to celebrate exemplary citizenship and identify areas for improvement</li>
+                <li><strong>Analyzes your social connections</strong> to protect you from potentially disloyal influences</li>
+                <li><strong>Records your compliance history</strong> to demonstrate your dedication to Great America</li>
+            </ul>
+        </div>
+
+        <div class="warning-box">
+            <strong>COMPLIANCE REMINDER:</strong> OBAI systems are always active for your protection. Attempts to evade or interfere with OBAI monitoring are classified as suspicious behavior and will result in immediate loyalty assessment escalation. Your cooperation ensures your safety.
+        </div>
+
+        <div class="info-card">
+            <h2>Key Performance Indicators</h2>
+            <p>OBAI evaluates citizens across multiple behavioral dimensions:</p>
+            
+            <div style="display: grid; gap: 15px; margin-top: 15px;">
+                <div style="border-left: 3px solid var(--control-blue); padding-left: 15px;">
+                    <div style="font-weight: 600; color: var(--control-blue); margin-bottom: 5px;">Patriotism Index</div>
+                    <div style="font-size: 14px;">Measures visible displays of national pride, flag ownership, and attendance at loyalty events</div>
+                </div>
+                
+                <div style="border-left: 3px solid var(--control-blue); padding-left: 15px;">
+                    <div style="font-weight: 600; color: var(--control-blue); margin-bottom: 5px;">Loyalty Drift</div>
+                    <div style="font-size: 14px;">Tracks behavioral consistency and deviation from established loyalty patterns</div>
+                </div>
+                
+                <div style="border-left: 3px solid var(--control-blue); padding-left: 15px;">
+                    <div style="font-weight: 600; color: var(--control-blue); margin-bottom: 5px;">Speech Alignment</div>
+                    <div style="font-size: 14px;">Analyzes verbal and written communication for approved terminology and sentiment</div>
+                </div>
+                
+                <div style="border-left: 3px solid var(--control-blue); padding-left: 15px;">
+                    <div style="font-weight: 600; color: var(--control-blue); margin-bottom: 5px;">Emotional Stability</div>
+                    <div style="font-size: 14px;">Monitors facial expressions and physiological indicators for optimal compliance readiness</div>
+                </div>
+                
+                <div style="border-left: 3px solid var(--control-blue); padding-left: 15px;">
+                    <div style="font-weight: 600; color: var(--control-blue); margin-bottom: 5px;">Ideological Harmony</div>
+                    <div style="font-size: 14px;">Evaluates agreement with Great America policies and values alignment</div>
+                </div>
+                
+                <div style="border-left: 3px solid var(--control-blue); padding-left: 15px;">
+                    <div style="font-weight: 600; color: var(--control-blue); margin-bottom: 5px;">Smile Frequency</div>
+                    <div style="font-size: 14px;">Measures public demeanor and visible enthusiasm in monitored spaces</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <h2>Citizen Services Powered by OBAI</h2>
+            <p>Access these Great America services to view your metrics and maintain optimal compliance:</p>
+            
+            <div class="link-grid">
+                <a href="loyalty-assessment.html" class="link-card">
+                    <div class="link-card-title">📋 Loyalty Assessment</div>
+                    <div class="link-card-description">Complete your voluntary compliance verification and view your current loyalty metrics</div>
+                </a>
+                
+                <a href="citizen-id.html" class="link-card">
+                    <div class="link-card-title">👤 Citizen Verification Portal</div>
+                    <div class="link-card-description">View your official citizen profile and compliance status</div>
+                </a>
+                
+                <a href="id-card.html" class="link-card">
+                    <div class="link-card-title">🪪 ID Card Generator</div>
+                    <div class="link-card-description">Generate and print your official Great America identification card</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="notice-box">
+            <strong>OBAI SYSTEM NOTICE:</strong> All citizen interactions are monitored and recorded for quality assurance and compliance verification. Your enthusiasm has been logged. Trust OBAI. Trust yourself.
+        </div>
+
+        <div class="footer">
+            <div style="font-size: 14px; font-weight: 600; color: var(--corporate-slate); margin-bottom: 8px; display: flex; align-items: center; justify-content: center;">
+                <img src="assets/stars-and-bars.png" alt="Great America" class="ga-logo-small">
+                GREAT AMERICA
+            </div>
+            <div class="footer-text">Verified Citizen Program • Truth. Justice. Loyalty.</div>
+            <div class="teft-logo">T'EFT CO</div>
+            <div style="font-size: 11px; color: var(--sterile-silver); margin: 2px 0 8px 0;">Corporate Loyalty Partner</div>
+            <div class="obai-logo">OBAI • A Better Way to Use Your Day.</div>
+        </div>
+    </div>
+</body>
+</html>

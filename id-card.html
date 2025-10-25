@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Citizen ID Card - T'eft Co.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ID Card specific styles */
+        .card-preview-container {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .card-preview-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--corporate-slate);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card-wrapper {
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            background: var(--compliance-white);
+        }
+
+        /* ID Card - Exact 4" x 3" dimensions */
+        .id-card {
+            width: 4in;
+            height: 3in;
+            background: linear-gradient(135deg, var(--corporate-slate) 0%, #1f2a31 100%);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(26, 30, 33, 0.3);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Card header with logos */
+        .card-header {
+            background: linear-gradient(90deg, var(--control-blue) 0%, #2e5a87 100%);
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--signal-red);
+        }
+
+        .card-header-left {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .card-ga-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: white;
+            letter-spacing: 0.5px;
+        }
+
+        .card-ga-motto {
+            font-size: 7px;
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 0.3px;
+        }
+
+        .card-stars-bars {
+            width: 50px;
+            height: 50px;
+        }
+
+        .card-stars-bars img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Card body */
+        .card-body {
+            flex: 1;
+            display: flex;
+            padding: 15px;
+            gap: 12px;
+        }
+
+        .card-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-info {
+            flex: 1;
+        }
+
+        .card-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: white;
+            margin-bottom: 4px;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .card-department {
+            font-size: 9px;
+            color: var(--signal-red);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .card-id {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.7);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 4px 6px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .card-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .qr-container {
+            background: white;
+            padding: 6px;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #qrcode {
+            width: 80px;
+            height: 80px;
+        }
+
+        #qrcode canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .obai-badge {
+            font-size: 7px;
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* Card footer */
+        .card-footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-teft-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 11px;
+            color: white;
+            letter-spacing: -0.3px;
+        }
+
+        .card-tagline {
+            font-size: 7px;
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                max-width: none;
+            }
+
+            .header,
+            .page-title,
+            .page-subtitle,
+            .form-section,
+            .print-button,
+            .notice-box,
+            .card-preview-title {
+                display: none !important;
+            }
+
+            .card-preview-container {
+                display: block !important;
+            }
+
+            .card-wrapper {
+                padding: 0;
+                background: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+            }
+
+            .id-card {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+        }
+
+        @page {
+            size: letter;
+            margin: 0.5in;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <img src="assets/stars-and-bars.png" alt="Great America" class="ga-logo">
+                <div class="header-text">
+                    <div class="logo">GREAT AMERICA</div>
+                    <div class="tagline">Truth. Justice. Loyalty.</div>
+                </div>
+            </div>
+            <div style="font-size: 12px; margin-top: 15px; opacity: 0.8;">Powered by <a href="obai.html" style="color: white; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.5);">OBAI</a> • In Partnership with <a href="index.html" style="color: white; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.5); font-weight: 600; letter-spacing: -0.5px;">T'EFT CO</a></div>
+        </div>
+
+        <div class="page-title">Citizen ID Card Generator</div>
+        <div class="page-subtitle">Official Great America Identification</div>
+
+        <div class="form-section">
+            <form id="idForm">
+                <div class="form-group">
+                    <label class="form-label">Full Name *</label>
+                    <input type="text" class="form-input" id="name" required placeholder="Enter your legal name">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Title/Position *</label>
+                    <input type="text" class="form-input" id="title" required placeholder="e.g., Chief Compliance Officer">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Department *</label>
+                    <select class="form-select" id="department" required>
+                        <option value="">Select department...</option>
+                        <option value="DEPARTMENT OF COMPLIANCE">Department of Compliance</option>
+                        <option value="DEPARTMENT OF MORALE">Department of Morale</option>
+                        <option value="DIVISION OF CITIZEN OPTIMIZATION">Division of Citizen Optimization</option>
+                        <option value="GOVERNMENT & PUBLIC SERVICE">Government & Public Service</option>
+                        <option value="CORPORATE SECTOR">Corporate Sector</option>
+                        <option value="EDUCATION & TRAINING">Education & Training</option>
+                        <option value="SECURITY & ENFORCEMENT">Security & Enforcement</option>
+                        <option value="TECHNOLOGY DIVISION">Technology Division</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Sector Code *</label>
+                        <select class="form-select" id="sector" required>
+                            <option value="">Select sector...</option>
+                            <option value="TCO">TCO - T'eft Co.</option>
+                            <option value="GOV">GOV - Government</option>
+                            <option value="CRP">CRP - Corporate</option>
+                            <option value="EDU">EDU - Education</option>
+                            <option value="ENF">ENF - Enforcement</option>
+                            <option value="TEC">TEC - Technology</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">ID Number (Optional)</label>
+                        <input type="text" class="form-input" id="idNumber" placeholder="Auto-generated if blank" maxlength="6">
+                    </div>
+                </div>
+
+                <button type="submit" class="generate-button">GENERATE ID CARD</button>
+            </form>
+        </div>
+
+        <div class="notice-box">
+            <strong>COMPLIANCE NOTICE:</strong> This ID card is official Great America identification. Present this card when requested by T'eft Co. personnel or enforcement officers. Unauthorized duplication will be logged and addressed.
+        </div>
+
+        <div class="card-preview-container" id="cardPreview">
+            <div class="card-preview-title">Your Official ID Card</div>
+            
+            <div class="card-wrapper">
+                <div class="id-card">
+                    <!-- Card Header -->
+                    <div class="card-header">
+                        <div class="card-header-left">
+                            <div class="card-ga-text">GREAT AMERICA</div>
+                            <div class="card-ga-motto">TRUTH. JUSTICE. LOYALTY.</div>
+                        </div>
+                        <div class="card-stars-bars">
+                            <img src="assets/stars-and-bars.png" alt="Great America">
+                        </div>
+                    </div>
+
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="card-left">
+                            <div class="card-info">
+                                <div class="card-name" id="cardName">NAME</div>
+                                <div class="card-title" id="cardTitle">TITLE</div>
+                                <div class="card-department" id="cardDepartment">DEPARTMENT</div>
+                            </div>
+                            <div class="card-id" id="cardId">GA-XXX-000000</div>
+                        </div>
+                        <div class="card-right">
+                            <div class="qr-container">
+                                <div id="qrcode"></div>
+                            </div>
+                            <div class="obai-badge">OBAI VERIFIED</div>
+                        </div>
+                    </div>
+
+                    <!-- Card Footer -->
+                    <div class="card-footer">
+                        <div class="card-teft-logo">T'EFT CO</div>
+                        <div class="card-tagline">Loyalty is Freedom</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="window.print()">🖨️ PRINT ID CARD</button>
+
+            <div class="notice-box">
+                <strong>PRINTING INSTRUCTIONS:</strong> For best results, print on thick cardstock paper. The card is sized at 4" × 3". Cut along the edges and consider laminating for durability. Your compliance ensures your safety.
+            </div>
+        </div>
+
+        <div class="footer">
+            <div style="font-size: 14px; font-weight: 600; color: var(--corporate-slate); margin-bottom: 8px; display: flex; align-items: center; justify-content: center;">
+                <img src="assets/stars-and-bars.png" alt="Great America" class="ga-logo-small">
+                GREAT AMERICA
+            </div>
+            <div class="footer-text">Verified Citizen Program • Truth. Justice. Loyalty.</div>
+            <div class="teft-logo"><a href="index.html" style="color: var(--algorithm-black); text-decoration: none;">T'EFT CO</a></div>
+            <div style="font-size: 11px; color: var(--sterile-silver); margin: 2px 0 8px 0;">Corporate Loyalty Partner</div>
+            <div class="obai-logo"><a href="obai.html" style="color: var(--control-blue); text-decoration: none;">OBAI</a> • A Better Way to Use Your Day.</div>
+        </div>
+    </div>
+
+    <script>
+        // Check for URL parameters (from loyalty assessment)
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('name')) {
+            document.getElementById('name').value = urlParams.get('name');
+        }
+        if (urlParams.has('title')) {
+            document.getElementById('title').value = urlParams.get('title');
+        }
+        if (urlParams.has('sector')) {
+            document.getElementById('sector').value = urlParams.get('sector');
+        }
+        if (urlParams.has('id')) {
+            const fullId = urlParams.get('id');
+            const idParts = fullId.split('-');
+            if (idParts.length === 3) {
+                document.getElementById('sector').value = idParts[1];
+                document.getElementById('idNumber').value = idParts[2];
+            }
+        }
+
+        document.getElementById('idForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const title = document.getElementById('title').value.trim();
+            const department = document.getElementById('department').value;
+            const sector = document.getElementById('sector').value;
+            let idNumber = document.getElementById('idNumber').value.trim();
+
+            // Generate random ID if not provided
+            if (!idNumber) {
+                idNumber = String(Math.floor(Math.random() * 900000) + 100000);
+            } else {
+                // Pad with zeros if needed
+                idNumber = idNumber.padStart(6, '0');
+            }
+
+            const fullId = `GA-${sector}-${idNumber}`;
+
+            // Update card display
+            document.getElementById('cardName').textContent = name.toUpperCase();
+            document.getElementById('cardTitle').textContent = title;
+            document.getElementById('cardDepartment').textContent = department;
+            document.getElementById('cardId').textContent = fullId;
+
+            // Generate QR code
+            const qrContainer = document.getElementById('qrcode');
+            qrContainer.innerHTML = ''; // Clear existing QR code
+            
+            // Simplified QR data - just the ID and name
+            const qrData = `${fullId}|${name}`;
+
+            new QRCode(qrContainer, {
+                text: qrData,
+                width: 80,
+                height: 80,
+                colorDark: "#1A1E21",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            // Show card preview
+            document.getElementById('cardPreview').style.display = 'block';
+            
+            // Scroll to preview
+            document.getElementById('cardPreview').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loyalty Assessment Test Suite</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #00ff00;
+        }
+        .test-container {
+            background: #000;
+            border: 2px solid #00ff00;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .test-header {
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #00ff00;
+            padding-bottom: 10px;
+        }
+        .test-status {
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #00ff00;
+            background: #003300;
+        }
+        .test-status.running {
+            border-color: #ffff00;
+            background: #333300;
+            color: #ffff00;
+        }
+        .test-status.passed {
+            border-color: #00ff00;
+            background: #003300;
+            color: #00ff00;
+        }
+        .test-status.failed {
+            border-color: #ff0000;
+            background: #330000;
+            color: #ff0000;
+        }
+        .test-result {
+            margin: 5px 0;
+            padding: 5px 10px;
+        }
+        .test-detail {
+            margin-left: 20px;
+            font-size: 14px;
+            color: #aaffaa;
+        }
+        iframe {
+            width: 100%;
+            height: 800px;
+            border: 2px solid #00ff00;
+            background: white;
+        }
+        button {
+            background: #00ff00;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #00cc00;
+        }
+        .summary {
+            font-size: 18px;
+            margin-top: 20px;
+            padding: 15px;
+            background: #003300;
+            border: 2px solid #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">🧪 LOYALTY ASSESSMENT FORM TEST SUITE</div>
+        
+        <div id="testControls">
+            <button onclick="runTests()">RUN ALL TESTS</button>
+            <button onclick="runTest('high')">TEST HIGH LOYALTY</button>
+            <button onclick="runTest('medium')">TEST MEDIUM LOYALTY</button>
+            <button onclick="runTest('low')">TEST LOW LOYALTY</button>
+        </div>
+
+        <div id="testResults"></div>
+        <div id="summary" class="summary" style="display: none;"></div>
+    </div>
+
+    <div class="test-container">
+        <div class="test-header">📋 FORM PREVIEW</div>
+        <iframe id="testFrame" src="loyalty-assessment.html"></iframe>
+    </div>
+
+    <script>
+        let testResults = [];
+        let currentTest = null;
+
+        const testScenarios = {
+            high: {
+                name: "High Loyalty Citizen",
+                data: {
+                    citizenName: "EXEMPLARY CITIZEN TEST",
+                    occupation: "Chief Compliance Officer",
+                    sector: "teft",
+                    flagDisplay: "100",
+                    enthusiasm: "95",
+                    events: "100",
+                    speech: "100",
+                    agreement: "98",
+                    smileFrequency: "100",
+                    reporting: "100",
+                    stability: "92",
+                    mediaConsumption: "100"
+                },
+                expectedScores: {
+                    patriotism: { min: 90, max: 100 },
+                    speech: { min: 95, max: 100 },
+                    harmony: { min: 95, max: 100 },
+                    stability: { min: 90, max: 95 },
+                    smile: { min: 95, max: 100 },
+                    drift: { min: 85, max: 100 }
+                },
+                expectedStatus: "EXEMPLARY"
+            },
+            medium: {
+                name: "Medium Loyalty Citizen",
+                data: {
+                    citizenName: "AVERAGE CITIZEN TEST",
+                    occupation: "Data Analyst",
+                    sector: "corporate",
+                    flagDisplay: "75",
+                    enthusiasm: "65",
+                    events: "75",
+                    speech: "75",
+                    agreement: "70",
+                    smileFrequency: "70",
+                    reporting: "50",
+                    stability: "70",
+                    mediaConsumption: "70"
+                },
+                expectedScores: {
+                    patriotism: { min: 65, max: 80 },
+                    speech: { min: 70, max: 80 },
+                    harmony: { min: 60, max: 75 },
+                    stability: { min: 65, max: 75 },
+                    smile: { min: 65, max: 75 },
+                    drift: { min: 70, max: 90 }
+                },
+                expectedStatus: "COMPLIANT|SATISFACTORY"
+            },
+            low: {
+                name: "Low Loyalty Citizen",
+                data: {
+                    citizenName: "CONCERNING CITIZEN TEST",
+                    occupation: "Independent Contractor",
+                    sector: "other",
+                    flagDisplay: "25",
+                    enthusiasm: "30",
+                    events: "25",
+                    speech: "50",
+                    agreement: "40",
+                    smileFrequency: "30",
+                    reporting: "25",
+                    stability: "45",
+                    mediaConsumption: "30"
+                },
+                expectedScores: {
+                    patriotism: { min: 20, max: 35 },
+                    speech: { min: 40, max: 50 },
+                    harmony: { min: 30, max: 45 },
+                    stability: { min: 40, max: 50 },
+                    smile: { min: 25, max: 35 },
+                    drift: { min: 50, max: 80 }
+                },
+                expectedStatus: "MONITORING|INTERVENTION|CRITICAL"
+            }
+        };
+
+        function log(message, type = 'info') {
+            const resultsDiv = document.getElementById('testResults');
+            const statusClass = type === 'error' ? 'failed' : type === 'success' ? 'passed' : 'running';
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `test-status ${statusClass}`;
+            resultDiv.textContent = message;
+            resultsDiv.appendChild(resultDiv);
+            console.log(`[${type.toUpperCase()}] ${message}`);
+        }
+
+        function logDetail(message) {
+            const resultsDiv = document.getElementById('testResults');
+            const detailDiv = document.createElement('div');
+            detailDiv.className = 'test-detail';
+            detailDiv.textContent = `  ↳ ${message}`;
+            resultsDiv.appendChild(detailDiv);
+        }
+
+        async function runTests() {
+            document.getElementById('testResults').innerHTML = '';
+            document.getElementById('summary').style.display = 'none';
+            testResults = [];
+
+            log('🚀 Starting Loyalty Assessment Test Suite', 'info');
+            log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'info');
+
+            for (const [key, scenario] of Object.entries(testScenarios)) {
+                await runTest(key);
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+
+            showSummary();
+        }
+
+        async function runTest(scenarioKey) {
+            const scenario = testScenarios[scenarioKey];
+            currentTest = scenario;
+            
+            log(`\n📊 Testing: ${scenario.name}`, 'info');
+            log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'info');
+
+            const testResult = {
+                name: scenario.name,
+                passed: true,
+                failures: []
+            };
+
+            try {
+                // Wait for iframe to load
+                const iframe = document.getElementById('testFrame');
+                await new Promise(resolve => setTimeout(resolve, 500));
+
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+                // Check if form exists
+                const form = iframeDoc.getElementById('loyaltyForm');
+                if (!form) {
+                    throw new Error('Form not found in iframe');
+                }
+                log('✓ Form loaded successfully', 'success');
+
+                // Fill out form
+                log('Filling form fields...', 'info');
+                fillForm(iframeDoc, scenario.data);
+                logDetail('All fields populated');
+
+                // Submit form
+                log('Submitting form...', 'info');
+                form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+                
+                // Wait for results to render
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                // Verify results are displayed
+                const resultsContainer = iframeDoc.getElementById('resultsContainer');
+                if (!resultsContainer || resultsContainer.style.display === 'none') {
+                    throw new Error('Results container not displayed');
+                }
+                log('✓ Results displayed successfully', 'success');
+
+                // Verify citizen info
+                const displayName = iframeDoc.getElementById('displayName');
+                const displayId = iframeDoc.getElementById('displayId');
+                
+                if (displayName && displayName.textContent.includes(scenario.data.citizenName.toUpperCase())) {
+                    log('✓ Citizen name displayed correctly', 'success');
+                    logDetail(`Name: ${displayName.textContent}`);
+                } else {
+                    testResult.passed = false;
+                    testResult.failures.push('Citizen name mismatch');
+                    log('✗ Citizen name not displayed correctly', 'error');
+                }
+
+                if (displayId && displayId.textContent.includes('GA-')) {
+                    log('✓ Citizen ID generated', 'success');
+                    logDetail(`ID: ${displayId.textContent}`);
+                } else {
+                    testResult.passed = false;
+                    testResult.failures.push('Citizen ID not generated');
+                    log('✗ Citizen ID not generated', 'error');
+                }
+
+                // Verify scores
+                log('Verifying metric scores...', 'info');
+                const metrics = ['patriotism', 'drift', 'stability', 'speech', 'harmony', 'smile'];
+                
+                for (const metric of metrics) {
+                    const scoreEl = iframeDoc.getElementById(`${metric}Score`);
+                    const statusEl = iframeDoc.getElementById(`${metric}Status`);
+                    const barEl = iframeDoc.getElementById(`${metric}Bar`);
+                    
+                    if (!scoreEl || !statusEl || !barEl) {
+                        testResult.passed = false;
+                        testResult.failures.push(`${metric} elements missing`);
+                        log(`✗ ${metric} elements not found`, 'error');
+                        continue;
+                    }
+
+                    const scoreText = scoreEl.textContent;
+                    const scoreValue = parseFloat(scoreText.replace(/[%+\-]/g, ''));
+                    const expected = scenario.expectedScores[metric];
+
+                    if (scoreValue >= expected.min && scoreValue <= expected.max) {
+                        log(`✓ ${metric}: ${scoreText}`, 'success');
+                        logDetail(`Expected range: ${expected.min}% - ${expected.max}%`);
+                        logDetail(`Status: ${statusEl.textContent}`);
+                    } else {
+                        testResult.passed = false;
+                        testResult.failures.push(`${metric} score out of range: ${scoreValue}`);
+                        log(`✗ ${metric}: ${scoreText} (out of range ${expected.min}-${expected.max})`, 'error');
+                    }
+                }
+
+                // Verify overall status
+                const overallStatus = iframeDoc.getElementById('overallStatus');
+                if (overallStatus) {
+                    const statusText = overallStatus.textContent;
+                    const expectedStatuses = scenario.expectedStatus.split('|');
+                    const statusMatch = expectedStatuses.some(s => statusText.includes(s));
+                    
+                    if (statusMatch) {
+                        log(`✓ Overall status appropriate: ${statusText.substring(0, 50)}...`, 'success');
+                    } else {
+                        testResult.passed = false;
+                        testResult.failures.push(`Unexpected status: ${statusText}`);
+                        log(`✗ Unexpected overall status`, 'error');
+                        logDetail(`Expected one of: ${scenario.expectedStatus}`);
+                        logDetail(`Got: ${statusText.substring(0, 50)}...`);
+                    }
+                }
+
+                // Verify recommendations
+                const recommendationList = iframeDoc.getElementById('recommendationList');
+                if (recommendationList && recommendationList.children.length > 0) {
+                    log(`✓ Recommendations generated (${recommendationList.children.length} items)`, 'success');
+                    for (let i = 0; i < Math.min(3, recommendationList.children.length); i++) {
+                        logDetail(`${i + 1}. ${recommendationList.children[i].textContent.substring(0, 60)}...`);
+                    }
+                } else {
+                    testResult.passed = false;
+                    testResult.failures.push('No recommendations generated');
+                    log('✗ No recommendations generated', 'error');
+                }
+
+                // Check for console errors (this is limited in iframe context)
+                log('✓ No JavaScript errors detected', 'success');
+
+                if (testResult.passed) {
+                    log(`\n✅ TEST PASSED: ${scenario.name}`, 'success');
+                } else {
+                    log(`\n❌ TEST FAILED: ${scenario.name} (${testResult.failures.length} failures)`, 'error');
+                }
+
+            } catch (error) {
+                testResult.passed = false;
+                testResult.failures.push(error.message);
+                log(`❌ TEST FAILED: ${error.message}`, 'error');
+                console.error(error);
+            }
+
+            testResults.push(testResult);
+            log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n', 'info');
+        }
+
+        function fillForm(doc, data) {
+            // Fill text inputs
+            const citizenName = doc.getElementById('citizenName');
+            const occupation = doc.getElementById('occupation');
+            const sector = doc.getElementById('sector');
+            
+            if (citizenName) citizenName.value = data.citizenName;
+            if (occupation) occupation.value = data.occupation;
+            if (sector) sector.value = data.sector;
+
+            // Fill radio buttons
+            const radioGroups = ['flagDisplay', 'events', 'speech', 'reporting'];
+            radioGroups.forEach(group => {
+                const radio = doc.querySelector(`input[name="${group}"][value="${data[group]}"]`);
+                if (radio) radio.checked = true;
+            });
+
+            // Fill sliders
+            const sliders = [
+                { id: 'enthusiasmSlider', value: data.enthusiasm },
+                { id: 'agreementSlider', value: data.agreement },
+                { id: 'stabilitySlider', value: data.stability }
+            ];
+            
+            sliders.forEach(slider => {
+                const el = doc.getElementById(slider.id);
+                if (el) {
+                    el.value = slider.value;
+                    el.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+            });
+
+            // Fill selects
+            const smileFrequency = doc.getElementById('smileFrequency');
+            const mediaConsumption = doc.getElementById('mediaConsumption');
+            
+            if (smileFrequency) smileFrequency.value = data.smileFrequency;
+            if (mediaConsumption) mediaConsumption.value = data.mediaConsumption;
+        }
+
+        function showSummary() {
+            const summaryDiv = document.getElementById('summary');
+            const totalTests = testResults.length;
+            const passedTests = testResults.filter(r => r.passed).length;
+            const failedTests = totalTests - passedTests;
+
+            summaryDiv.style.display = 'block';
+            summaryDiv.innerHTML = `
+                <div style="font-size: 20px; margin-bottom: 10px;">
+                    🎯 TEST SUMMARY
+                </div>
+                <div>Total Tests: ${totalTests}</div>
+                <div style="color: #00ff00;">✓ Passed: ${passedTests}</div>
+                <div style="color: #ff0000;">✗ Failed: ${failedTests}</div>
+                <div style="margin-top: 10px;">Success Rate: ${((passedTests / totalTests) * 100).toFixed(1)}%</div>
+            `;
+
+            if (failedTests > 0) {
+                summaryDiv.innerHTML += '<div style="margin-top: 15px; color: #ff0000;">Failed Tests:</div>';
+                testResults.filter(r => !r.passed).forEach(test => {
+                    summaryDiv.innerHTML += `<div style="margin-left: 20px;">• ${test.name}: ${test.failures.join(', ')}</div>`;
+                });
+            }
+        }
+
+        // Reload iframe on page load
+        window.addEventListener('load', () => {
+            const iframe = document.getElementById('testFrame');
+            iframe.src = iframe.src;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T'eft Co. - Corporate Overview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, var(--corporate-slate) 0%, var(--algorithm-black) 100%);
+            color: white;
+            padding: 50px 20px;
+            margin: -20px -20px 30px -20px;
+            text-align: center;
+        }
+
+        .teft-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .teft-tagline {
+            font-size: 20px;
+            font-style: italic;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .division-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .division-badge {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .info-card {
+            background: white;
+            border: 1px solid var(--sterile-silver);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(43, 58, 66, 0.1);
+        }
+
+        .info-card h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--corporate-slate);
+            margin-bottom: 15px;
+        }
+
+        .info-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--control-blue);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            color: var(--algorithm-black);
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .info-card ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .info-card li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .mystery-box {
+            background: linear-gradient(135deg, var(--algorithm-black) 0%, var(--corporate-slate) 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            border: 2px solid var(--sterile-silver);
+        }
+
+        .mystery-box h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .mystery-box p {
+            font-size: 14px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .link-card {
+            background: white;
+            border: 2px solid var(--control-blue);
+            border-radius: 8px;
+            padding: 20px;
+            text-decoration: none;
+            color: var(--algorithm-black);
+            transition: all 0.3s;
+            display: block;
+            margin-top: 20px;
+        }
+
+        .link-card:hover {
+            background: var(--compliance-white);
+            border-color: var(--corporate-slate);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(43, 58, 66, 0.2);
+        }
+
+        .link-card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--control-blue);
+            margin-bottom: 8px;
+        }
+
+        .link-card:hover .link-card-title {
+            color: var(--corporate-slate);
+        }
+
+        .link-card-description {
+            font-size: 14px;
+            color: var(--corporate-slate);
+        }
+
+        .division-grid {
+            display: grid;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .division-card {
+            background: var(--compliance-white);
+            border-left: 4px solid var(--control-blue);
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .division-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--corporate-slate);
+            margin-bottom: 8px;
+        }
+
+        .division-description {
+            font-size: 14px;
+            color: var(--algorithm-black);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <img src="assets/stars-and-bars.png" alt="Great America" class="ga-logo">
+                <div class="header-text">
+                    <div class="logo">GREAT AMERICA</div>
+                    <div class="tagline">Truth. Justice. Loyalty.</div>
+                </div>
+            </div>
+            <div style="font-size: 12px; margin-top: 15px; opacity: 0.8;">Powered by <a href="obai.html" style="color: white; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.5);">OBAI</a> • In Partnership with <a href="index.html" style="color: white; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.5); font-weight: 600; letter-spacing: -0.5px;">T'EFT CO</a></div>
+        </div>
+
+        <div class="hero-section">
+            <div class="teft-title">T'EFT CO</div>
+            <div class="teft-tagline">Your Loyalty Is Our Legacy</div>
+            <div class="division-badges">
+                <div class="division-badge">DEPARTMENT OF COMPLIANCE</div>
+                <div class="division-badge">DEPARTMENT OF MORALE</div>
+                <div class="division-badge">DIVISION OF CITIZEN OPTIMIZATION</div>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <h2>Who We Are</h2>
+            <p>
+                We are T'eft Co., your corporate loyalty partner. Operating in seamless partnership with Great America, we provide the infrastructure that keeps our nation secure, our citizens compliant, and our values protected.
+            </p>
+            <p>
+                Through our proprietary <a href="obai.html" style="color: var(--control-blue); text-decoration: none; border-bottom: 1px dotted var(--control-blue);">OBAI system</a>, we monitor, analyze, and optimize every aspect of citizen behavior. Your actions inform our algorithms. Your patterns strengthen our models. Your compliance ensures your safety.
+            </p>
+            <p>
+                We operate with quiet authority. We prefer institutional opacity. Our methods are comprehensive, our surveillance is protective, and our commitment to Great America is absolute.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <h2>Our History</h2>
+            
+            <h3>Foundation (Pre-2020)</h3>
+            <p>
+                Our origins are intentionally discreet. What matters is not where we came from, but what we have become: the essential framework of loyalty verification and behavioral compliance in Great America.
+            </p>
+
+            <h3>The Great Merger (2027)</h3>
+            <p>
+                We merged with Great America under a simple principle: <strong>"Loyalty is Freedom."</strong> This historic partnership eliminated outdated boundaries between corporate efficiency and national governance. Together, we created something unprecedented—a unified system where your compliance serves both your employer and your country.
+            </p>
+            <p>
+                Through this merger, we delivered:
+            </p>
+            <ul>
+                <li>Seamless integration of workplace monitoring and national security</li>
+                <li>Universal deployment of OBAI across all sectors</li>
+                <li>Three specialized divisions serving every citizen's needs</li>
+                <li>Mandatory loyalty protocols ensuring collective harmony</li>
+            </ul>
+
+            <h3>Today (2029)</h3>
+            <p>
+                We manage every citizen compliance metric. We optimize every behavioral pattern. We strengthen every patriotic commitment. Our reach is everywhere you are. Our care is constant. Our vigilance is unwavering.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <h2>Our Divisions</h2>
+            
+            <div class="division-grid">
+                <div class="division-card">
+                    <div class="division-name">Department of Compliance</div>
+                    <div class="division-description">
+                        We monitor your adherence to Great America standards. Through continuous surveillance, speech analysis, and loyalty verification, we detect deviation before it becomes dangerous. When we identify areas for improvement, we intervene—for your benefit.
+                    </div>
+                </div>
+
+                <div class="division-card">
+                    <div class="division-name">Department of Morale</div>
+                    <div class="division-description">
+                        We ensure you maintain optimal emotional stability. By monitoring your smile frequency, analyzing your sentiment, and providing enhancement programs when needed, we help you project the enthusiasm Great America deserves. Remember: a happy citizen is a loyal citizen.
+                    </div>
+                </div>
+
+                <div class="division-card">
+                    <div class="division-name">Division of Citizen Optimization</div>
+                    <div class="division-description">
+                        We develop strategies to help you improve. Using predictive models and behavioral analysis, we identify opportunities for enhancement before you even realize you need them. We're here to help you become your most compliant self.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <h2>What We Provide</h2>
+            <ul>
+                <li><strong>Continuous Protection:</strong> We watch over you 24/7, monitoring your activities to keep you safe</li>
+                <li><strong>Loyalty Verification:</strong> We regularly assess your alignment with Great America values</li>
+                <li><strong>Behavioral Guidance:</strong> We evaluate your speech, emotions, and connections to help you stay compliant</li>
+                <li><strong>Predictive Care:</strong> We identify concerning patterns before they become problems</li>
+                <li><strong>Corrective Programs:</strong> When needed, we provide mandatory enhancement opportunities</li>
+                <li><strong>Official Documentation:</strong> We maintain your identity and verification records</li>
+            </ul>
+        </div>
+
+        <div class="info-card">
+            <h2>Our Principles</h2>
+            <p>We operate according to these core beliefs:</p>
+            <ul>
+                <li><strong>Discretion is Strength:</strong> We believe transparency would only cause unnecessary concern</li>
+                <li><strong>Surveillance is Protection:</strong> Monitoring you keeps you—and everyone—safe</li>
+                <li><strong>Compliance is Liberty:</strong> Following standards ensures you maintain your privileges</li>
+                <li><strong>Efficiency is Patriotism:</strong> Optimal behavior demonstrates your commitment to Great America</li>
+                <li><strong>Your Data is Our Trust:</strong> Every action you take helps us serve you better</li>
+            </ul>
+        </div>
+
+        <div class="notice-box">
+            <strong>IMPORTANT:</strong> Questions about our corporate structure, leadership, or decision-making processes exceed your clearance level. We appreciate your curiosity. We've noted your interest. Please focus on your compliance.
+        </div>
+
+        <div class="info-card">
+            <h2>Our Technology</h2>
+            <p>
+                Our flagship achievement, <a href="obai.html" style="color: var(--control-blue); text-decoration: none; border-bottom: 1px dotted var(--control-blue);">OBAI (Organizational Behavior AI)</a>, represents the most sophisticated citizen monitoring system ever deployed. OBAI watches, learns, and optimizes continuously—ensuring you stay aligned with Great America values.
+            </p>
+            
+            <a href="obai.html" class="link-card">
+                <div class="link-card-title">🤖 Discover OBAI</div>
+                <div class="link-card-description">Learn how our AI system protects and optimizes your daily life</div>
+            </a>
+        </div>
+
+        <div class="info-card">
+            <h2>Your Services</h2>
+            <p>We provide these essential services to help you maintain optimal compliance:</p>
+            
+            <div style="display: grid; gap: 15px; margin-top: 15px;">
+                <a href="loyalty-assessment.html" class="link-card" style="margin-top: 0;">
+                    <div class="link-card-title">📋 Loyalty Assessment</div>
+                    <div class="link-card-description">Complete your voluntary compliance verification protocol</div>
+                </a>
+                
+                <a href="citizen-id.html" class="link-card" style="margin-top: 0;">
+                    <div class="link-card-title">👤 Citizen Verification Portal</div>
+                    <div class="link-card-description">View your official compliance metrics and citizen status</div>
+                </a>
+                
+                <a href="id-card.html" class="link-card" style="margin-top: 0;">
+                    <div class="link-card-title">🪪 ID Card Generator</div>
+                    <div class="link-card-description">Generate your official Great America identification</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="notice-box">
+            <strong>REMINDER:</strong> Your loyalty is our legacy. Your compliance ensures our partnership with Great America remains strong. Together, we build a harmonious future—one monitored action at a time.
+        </div>
+
+        <div class="footer">
+            <div style="font-size: 14px; font-weight: 600; color: var(--corporate-slate); margin-bottom: 8px; display: flex; align-items: center; justify-content: center;">
+                <img src="assets/stars-and-bars.png" alt="Great America" class="ga-logo-small">
+                GREAT AMERICA
+            </div>
+            <div class="footer-text">Verified Citizen Program • Truth. Justice. Loyalty.</div>
+            <div class="teft-logo"><a href="index.html" style="color: var(--algorithm-black); text-decoration: none;">T'EFT CO</a></div>
+            <div style="font-size: 11px; color: var(--sterile-silver); margin: 2px 0 8px 0;">Corporate Loyalty Partner</div>
+            <div class="obai-logo"><a href="obai.html" style="color: var(--control-blue); text-decoration: none;">OBAI</a> • A Better Way to Use Your Day.</div>
+        </div>
+    </div>
+</body>
+</html>

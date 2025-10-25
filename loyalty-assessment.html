@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citizen Loyalty Assessment - T'eft Co.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <img src="assets/stars-and-bars.png" alt="Great America" class="ga-logo">
+                <div class="header-text">
+                    <div class="logo">GREAT AMERICA</div>
+                    <div class="tagline">Truth. Justice. Loyalty.</div>
+                </div>
+            </div>
+            <div style="font-size: 12px; margin-top: 15px; opacity: 0.8;">Powered by <a href="obai.html" style="color: white; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.5);">OBAI</a> • In Partnership with <a href="index.html" style="color: white; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.5); font-weight: 600; letter-spacing: -0.5px;">T'EFT CO</a></div>
+        </div>
+
+        <!-- Assessment Form -->
+        <div id="assessmentForm">
+            <div class="page-title">Citizen Loyalty Assessment</div>
+            <div class="page-subtitle">Voluntary Compliance Verification Protocol</div>
+
+            <div class="notice-box">
+                <strong>GREAT AMERICA CITIZEN NOTICE:</strong> This assessment helps us monitor your loyalty alignment and ensure your continued participation in our harmonious society. Your honest responses strengthen our collective security. Your compliance ensures your safety.
+            </div>
+
+            <form id="loyaltyForm">
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <div class="section-title">Citizen Information</div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Full Name *</label>
+                        <input type="text" class="form-input" id="citizenName" required placeholder="Enter your legal name">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Occupation *</label>
+                        <input type="text" class="form-input" id="occupation" required placeholder="Your current role">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Employment Sector *</label>
+                        <select class="form-select" id="sector" required>
+                            <option value="">Select sector...</option>
+                            <option value="government">Government & Public Service</option>
+                            <option value="corporate">Corporate Sector</option>
+                            <option value="teft">T'eft Co. Division</option>
+                            <option value="education">Education & Training</option>
+                            <option value="enforcement">Security & Enforcement</option>
+                            <option value="other">Other Approved Sector</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Patriotism Assessment -->
+                <div class="form-section">
+                    <div class="section-title">Patriotism Index</div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">How often do you display the Great America flag? *</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="flagDisplay" value="100" required>
+                                Daily - It's visible from my home/workspace at all times
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="flagDisplay" value="75">
+                                Weekly - During national observance days
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="flagDisplay" value="50">
+                                Monthly - On major patriotic holidays
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="flagDisplay" value="25">
+                                Rarely - Only when required
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Rate your enthusiasm for Great America's values (Truth, Justice, Loyalty) *</label>
+                        <div class="slider-container">
+                            <input type="range" min="0" max="100" value="50" class="slider" id="enthusiasmSlider">
+                            <div class="slider-labels">
+                                <span>Neutral</span>
+                                <span>Enthusiastic</span>
+                                <span>Exemplary</span>
+                            </div>
+                            <div class="slider-value" id="enthusiasmValue">50%</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Have you attended any Great America loyalty events in the past month? *</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="events" value="100" required>
+                                Yes, multiple events
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="events" value="75">
+                                Yes, at least one
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="events" value="50">
+                                No, but I watched broadcasts
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="events" value="25">
+                                No participation
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compliance Assessment -->
+                <div class="form-section">
+                    <div class="section-title">Compliance Verification</div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">How would you describe your speech patterns regarding Great America? *</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="speech" value="100" required>
+                                Always positive and supportive
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="speech" value="75">
+                                Mostly positive with occasional concerns
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="speech" value="50">
+                                Balanced perspective
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="speech" value="25">
+                                Critical but constructive
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Rate your agreement with Great America policies *</label>
+                        <div class="slider-container">
+                            <input type="range" min="0" max="100" value="50" class="slider" id="agreementSlider">
+                            <div class="slider-labels">
+                                <span>Moderate</span>
+                                <span>Strong</span>
+                                <span>Complete</span>
+                            </div>
+                            <div class="slider-value" id="agreementValue">50%</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">How often do you smile in public spaces? *</label>
+                        <select class="form-select" id="smileFrequency" required>
+                            <option value="">Select frequency...</option>
+                            <option value="100">Constantly - I maintain a pleasant demeanor</option>
+                            <option value="85">Frequently - Most interactions</option>
+                            <option value="70">Regularly - When appropriate</option>
+                            <option value="50">Occasionally - When necessary</option>
+                            <option value="30">Rarely - I prefer neutral expressions</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Behavioral Assessment -->
+                <div class="form-section">
+                    <div class="section-title">Behavioral Analysis</div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Have you reported any concerning behavior by fellow citizens? *</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="reporting" value="100" required>
+                                Yes, I actively report deviations
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="reporting" value="75">
+                                Yes, when necessary
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="reporting" value="50">
+                                I would if I observed concerning behavior
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="reporting" value="25">
+                                I prefer not to involve myself
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Rate your emotional stability throughout the day *</label>
+                        <div class="slider-container">
+                            <input type="range" min="0" max="100" value="50" class="slider" id="stabilitySlider">
+                            <div class="slider-labels">
+                                <span>Variable</span>
+                                <span>Stable</span>
+                                <span>Optimal</span>
+                            </div>
+                            <div class="slider-value" id="stabilityValue">50%</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Do you regularly consume Great America approved media? *</label>
+                        <select class="form-select" id="mediaConsumption" required>
+                            <option value="">Select consumption level...</option>
+                            <option value="100">Exclusively - All my media is GA approved</option>
+                            <option value="85">Primarily - Most of my consumption</option>
+                            <option value="70">Regularly - I follow official channels</option>
+                            <option value="50">Occasionally - When convenient</option>
+                            <option value="30">Rarely - I have diverse sources</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-button">SUBMIT ASSESSMENT</button>
+            </form>
+        </div>
+
+        <!-- Results Display -->
+        <div id="resultsContainer" class="results-container">
+            <div class="results-header">
+                <div class="results-title">Assessment Complete</div>
+                <div class="results-subtitle">Your Loyalty Profile Has Been Generated</div>
+            </div>
+
+            <div class="citizen-display">
+                <div class="citizen-name-display" id="displayName"></div>
+                <div style="font-size: 14px; color: var(--control-blue); margin: 5px 0;" id="displayOccupation"></div>
+                <div class="citizen-id-display" id="displayId"></div>
+            </div>
+
+            <div class="alert-section" id="overallStatus"></div>
+
+            <div class="form-section">
+                <div class="section-title">Your Loyalty Metrics</div>
+                
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-name">Patriotism Index</span>
+                        <span class="metric-value" id="patriotismScore"></span>
+                    </div>
+                    <div class="metric-status" id="patriotismStatus"></div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="patriotismBar"></div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-name">Loyalty Drift</span>
+                        <span class="metric-value" id="driftScore"></span>
+                    </div>
+                    <div class="metric-status" id="driftStatus"></div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="driftBar"></div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-name">Emotional Stability</span>
+                        <span class="metric-value" id="stabilityScore"></span>
+                    </div>
+                    <div class="metric-status" id="stabilityStatus"></div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="stabilityBar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="section-title">Compliance Metrics</div>
+                
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-name">Speech Alignment</span>
+                        <span class="metric-value" id="speechScore"></span>
+                    </div>
+                    <div class="metric-status" id="speechStatus"></div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="speechBar"></div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-name">Ideological Harmony</span>
+                        <span class="metric-value" id="harmonyScore"></span>
+                    </div>
+                    <div class="metric-status" id="harmonyStatus"></div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="harmonyBar"></div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-name">Smile Frequency</span>
+                        <span class="metric-value" id="smileScore"></span>
+                    </div>
+                    <div class="metric-status" id="smileStatus"></div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="smileBar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recommendation-box" id="recommendations">
+                <div class="recommendation-title">OBAI Recommendations for Loyalty Enhancement</div>
+                <ul class="recommendation-list" id="recommendationList"></ul>
+            </div>
+
+            <div class="notice-box" style="margin-top: 25px;">
+                <strong>COMPLIANCE CONFIRMATION:</strong> Your assessment results have been logged in the Great America Citizen Database. Your continued loyalty strengthens our nation. Deviation patterns will be monitored for your protection.
+            </div>
+
+            <div style="text-align: center; margin-top: 25px;">
+                <a href="#" id="viewIdCard" style="display: inline-block; padding: 15px 30px; background: var(--control-blue); color: white; text-decoration: none; border-radius: 6px; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 14px; transition: background 0.3s;">
+                    🪪 VIEW & PRINT YOUR ID CARD
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div style="font-size: 14px; font-weight: 600; color: var(--corporate-slate); margin-bottom: 8px; display: flex; align-items: center; justify-content: center;">
+                <img src="assets/stars-and-bars.png" alt="Great America" class="ga-logo-small">
+                GREAT AMERICA
+            </div>
+            <div class="footer-text">Verified Citizen Program • Truth. Justice. Loyalty.</div>
+            <div class="teft-logo"><a href="index.html" style="color: var(--algorithm-black); text-decoration: none;">T'EFT CO</a></div>
+            <div style="font-size: 11px; color: var(--sterile-silver); margin: 2px 0 8px 0;">Corporate Loyalty Partner</div>
+            <div class="obai-logo"><a href="obai.html" style="color: var(--control-blue); text-decoration: none;">OBAI</a> • A Better Way to Use Your Day.</div>
+        </div>
+    </div>
+
+    <script>
+        // Update slider values in real-time
+        const enthusiasmSlider = document.getElementById('enthusiasmSlider');
+        const enthusiasmValue = document.getElementById('enthusiasmValue');
+        const agreementSlider = document.getElementById('agreementSlider');
+        const agreementValue = document.getElementById('agreementValue');
+        const stabilitySlider = document.getElementById('stabilitySlider');
+        const stabilityValue = document.getElementById('stabilityValue');
+
+        enthusiasmSlider.oninput = function() {
+            enthusiasmValue.textContent = this.value + '%';
+        }
+
+        agreementSlider.oninput = function() {
+            agreementValue.textContent = this.value + '%';
+        }
+
+        stabilitySlider.oninput = function() {
+            stabilityValue.textContent = this.value + '%';
+        }
+
+        // Form submission and calculation
+        document.getElementById('loyaltyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('citizenName').value;
+            const occupation = document.getElementById('occupation').value;
+            const sector = document.getElementById('sector').value;
+
+            // Calculate scores
+            const flagDisplay = parseInt(document.querySelector('input[name="flagDisplay"]:checked').value);
+            const enthusiasm = parseInt(enthusiasmSlider.value);
+            const events = parseInt(document.querySelector('input[name="events"]:checked').value);
+            const patriotismIndex = Math.round((flagDisplay + enthusiasm + events) / 3);
+
+            const speech = parseInt(document.querySelector('input[name="speech"]:checked').value);
+            const agreement = parseInt(agreementSlider.value);
+            const speechAlignment = Math.round((speech + agreement) / 2);
+
+            const smileFreq = parseInt(document.getElementById('smileFrequency').value);
+            const reporting = parseInt(document.querySelector('input[name="reporting"]:checked').value);
+            const ideologicalHarmony = Math.round((agreement + reporting + enthusiasm) / 3);
+
+            const stability = parseInt(stabilitySlider.value);
+            const media = parseInt(document.getElementById('mediaConsumption').value);
+
+            // Calculate loyalty drift (inverse of variance)
+            const allScores = [flagDisplay, enthusiasm, events, speech, agreement, smileFreq, reporting, stability, media];
+            const avg = allScores.reduce((a, b) => a + b) / allScores.length;
+            const variance = allScores.reduce((sum, score) => sum + Math.pow(score - avg, 2), 0) / allScores.length;
+            const loyaltyDrift = Math.max(0, 100 - Math.sqrt(variance));
+
+            // Generate citizen ID
+            const sectorCodes = {
+                'government': 'GOV',
+                'corporate': 'CRP',
+                'teft': 'TCO',
+                'education': 'EDU',
+                'enforcement': 'ENF',
+                'other': 'OTH'
+            };
+            const sectorCode = sectorCodes[sector];
+            const randomId = Math.floor(Math.random() * 900000) + 100000;
+            const citizenId = `GA-${sectorCode}-${randomId}`;
+
+            // Overall status
+            const overallScore = Math.round((patriotismIndex + speechAlignment + ideologicalHarmony + stability) / 4);
+            let statusClass, statusText, statusMessage;
+            
+            if (overallScore >= 85) {
+                statusClass = 'alert-excellent';
+                statusText = 'EXEMPLARY CITIZEN';
+                statusMessage = 'Your loyalty is outstanding. Great America thanks you for your service.';
+            } else if (overallScore >= 70) {
+                statusClass = 'alert-good';
+                statusText = 'COMPLIANT CITIZEN';
+                statusMessage = 'Your loyalty meets Great America standards. Continue your excellent service.';
+            } else if (overallScore >= 50) {
+                statusClass = 'alert-warning';
+                statusText = 'MONITORING RECOMMENDED';
+                statusMessage = 'Your loyalty shows room for improvement. Enhanced surveillance has been activated.';
+            } else {
+                statusClass = 'alert-critical';
+                statusText = 'COMPLIANCE REQUIRED';
+                statusMessage = 'Immediate loyalty correction measures are necessary. Intervention scheduled.';
+            }
+
+            // Display results
+            document.getElementById('displayName').textContent = name.toUpperCase();
+            document.getElementById('displayOccupation').textContent = occupation;
+            document.getElementById('displayId').textContent = `ID: ${citizenId}`;
+
+            const overallStatusDiv = document.getElementById('overallStatus');
+            overallStatusDiv.className = `alert-section ${statusClass}`;
+            overallStatusDiv.innerHTML = `<div style="font-size: 18px; margin-bottom: 5px;">${statusText}</div><div style="font-size: 14px; font-weight: 400;">${statusMessage}</div>`;
+
+            // Update metrics
+            updateMetric('patriotism', patriotismIndex);
+            updateMetric('drift', loyaltyDrift);
+            updateMetric('stability', stability);
+            updateMetric('speech', speechAlignment);
+            updateMetric('harmony', ideologicalHarmony);
+            updateMetric('smile', smileFreq);
+
+            // Generate recommendations
+            generateRecommendations(patriotismIndex, speechAlignment, ideologicalHarmony, stability, smileFreq, loyaltyDrift);
+
+            // Show results, hide form
+            document.getElementById('assessmentForm').classList.add('hidden');
+            document.getElementById('resultsContainer').style.display = 'block';
+
+            // Store data for ID card link
+            sessionStorage.setItem('citizenData', JSON.stringify({
+                name: name,
+                title: occupation,
+                sector: sectorCode,
+                id: citizenId,
+                department: sector.toUpperCase()
+            }));
+
+            // Setup ID card link
+            document.getElementById('viewIdCard').addEventListener('click', function(e) {
+                e.preventDefault();
+                const data = JSON.parse(sessionStorage.getItem('citizenData'));
+                const params = new URLSearchParams({
+                    name: data.name,
+                    title: data.title,
+                    sector: data.sector,
+                    id: data.id
+                });
+                window.location.href = `id-card.html?${params.toString()}`;
+            });
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+
+            // Animate progress bars
+            setTimeout(() => {
+                document.querySelectorAll('.progress-fill').forEach(bar => {
+                    bar.style.width = bar.getAttribute('data-width');
+                });
+            }, 100);
+        });
+
+        function updateMetric(type, score) {
+            const scoreEl = document.getElementById(`${type}Score`);
+            const statusEl = document.getElementById(`${type}Status`);
+            const barEl = document.getElementById(`${type}Bar`);
+
+            let displayValue = score;
+            let barValue = score;
+            
+            if (type === 'drift') {
+                // Loyalty drift shows as negative/positive deviation from baseline
+                const drift = 100 - score;
+                displayValue = drift;
+                barValue = score; // Use consistency score (higher is better) for the bar
+                scoreEl.textContent = drift > 0 ? `+${drift.toFixed(1)}%` : `${drift.toFixed(1)}%`;
+            } else {
+                scoreEl.textContent = `${score.toFixed(1)}%`;
+            }
+
+            let statusClass, statusText, progressClass;
+            if (barValue >= 85) {
+                statusClass = 'status-excellent';
+                statusText = 'EXEMPLARY';
+                progressClass = 'progress-excellent';
+            } else if (barValue >= 70) {
+                statusClass = 'status-good';
+                statusText = type === 'drift' ? 'STABLE' : 'SATISFACTORY';
+                progressClass = 'progress-good';
+            } else if (barValue >= 50) {
+                statusClass = 'status-warning';
+                statusText = 'MONITORING REQUIRED';
+                progressClass = 'progress-warning';
+            } else {
+                statusClass = 'status-critical';
+                statusText = 'INTERVENTION NEEDED';
+                progressClass = 'progress-critical';
+            }
+
+            statusEl.className = `metric-status ${statusClass}`;
+            statusEl.textContent = statusText;
+            barEl.className = `progress-fill ${progressClass}`;
+            barEl.setAttribute('data-width', `${barValue}%`);
+            barEl.style.width = '0%';
+        }
+
+        function generateRecommendations(patriotism, speech, harmony, stability, smile, drift) {
+            const recommendations = [];
+            
+            if (patriotism < 85) {
+                recommendations.push('Increase Great America flag visibility in your living and working spaces');
+            }
+            if (patriotism < 70) {
+                recommendations.push('Attend mandatory loyalty enhancement seminars');
+            }
+            if (speech < 85) {
+                recommendations.push('Review approved speech patterns and terminology guidelines');
+            }
+            if (harmony < 70) {
+                recommendations.push('Consume exclusively Great America approved media sources');
+            }
+            if (stability < 80) {
+                recommendations.push('Consider emotional regulation counseling for optimal stability');
+            }
+            if (smile < 75) {
+                recommendations.push('Practice public demeanor compliance - maintain pleasant expressions');
+            }
+            if (drift < 75) {
+                recommendations.push('Consistency training recommended to reduce behavioral variance');
+            }
+            if (patriotism >= 85 && speech >= 85 && harmony >= 85) {
+                recommendations.push('Exemplary performance. Consider applying for Great America Ambassador Program');
+            }
+
+            if (recommendations.length === 0) {
+                recommendations.push('Your loyalty performance is optimal. Continue your excellent service to Great America.');
+            }
+
+            const listEl = document.getElementById('recommendationList');
+            listEl.innerHTML = '';
+            recommendations.forEach(rec => {
+                const li = document.createElement('li');
+                li.textContent = rec;
+                listEl.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
