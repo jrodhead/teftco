@@ -1,4 +1,4 @@
-# Chief Compliance Officer - Mr. Bunk
+# Chief Compliance Officer - Mr. White
 
 “T’eft Co. Department of Compliance – Powered by OBAI (In Partnership with Great America)”
 
@@ -10,7 +10,7 @@
 ## Accessories
 
 - ID Badge
-  - Name: Mr. Bunk
+  - Name: Mr. White
   - Title: Chief Compliance Officer
   - “T’eft Co. — Department of Compliance (Powered by OBAI)”
   - QR code linking to [data-driven identity](#data-driven-identity)

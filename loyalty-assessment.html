@@ -20,8 +20,8 @@
             <div style="font-size: 12px; margin-top: 15px; opacity: 0.8;">Powered by <a href="obai.html" style="color: white; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.5);">OBAI</a> • In Partnership with <a href="index.html" style="color: white; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.5); font-weight: 600; letter-spacing: -0.5px;">T'EFT CO</a></div>
         </div>
 
-        <!-- Assessment Form -->
-        <div id="assessmentForm">
+    <!-- Assessment Form -->
+    <div id="assessmentForm">
             <div class="page-title">Citizen Loyalty Assessment</div>
             <div class="page-subtitle">Virtue Verification Protocol</div>
 
@@ -335,6 +335,85 @@
             </div>
         </div>
 
+        <!-- Print Version of Loyalty Assessment -->
+        <div id="printAssessment" class="print-assessment">
+            <div class="print-header">
+                <img src="assets/stars-and-bars.png" alt="Great America" style="height: 40px; float: right;">
+                <div style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 18px; color: #2B3A42;">GREAT AMERICA</div>
+                <div style="font-size: 11px; color: #3E73A5; margin-bottom: 10px;">FREEDOM IN SERVICE</div>
+                <div style="font-size: 15px; font-weight: 600; margin-bottom: 8px;">Citizen Loyalty Assessment</div>
+                <div style="font-size: 12px; color: #2B3A42; margin-bottom: 12px;">Virtue Verification Protocol</div>
+            </div>
+            <form>
+                <div style="margin-bottom: 10px;">
+                    <label><strong>Full Name:</strong> ________________________________</label>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <label><strong>Occupation:</strong> ________________________________</label>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <label><strong>Employment Sector:</strong> __________________________</label>
+                </div>
+                <hr>
+                <div style="margin-bottom: 8px;"><strong>Patriotism Index</strong></div>
+                <div style="margin-bottom: 6px;">How often do you display the Great America flag?</div>
+                <div style="margin-bottom: 8px;">
+                    <input type="checkbox"> Daily &nbsp;
+                    <input type="checkbox"> Weekly &nbsp;
+                    <input type="checkbox"> Monthly &nbsp;
+                    <input type="checkbox"> Rarely
+                </div>
+                <div style="margin-bottom: 6px;">Rate your enthusiasm for Great America's values (Truth, Justice, Loyalty): __________%</div>
+                <div style="margin-bottom: 6px;">Have you attended any Great America loyalty events in the past month?</div>
+                <div style="margin-bottom: 8px;">
+                    <input type="checkbox"> Yes, multiple events &nbsp;
+                    <input type="checkbox"> Yes, at least one &nbsp;
+                    <input type="checkbox"> No, but watched broadcasts &nbsp;
+                    <input type="checkbox"> No participation
+                </div>
+                <hr>
+                <div style="margin-bottom: 8px;"><strong>Compliance Verification</strong></div>
+                <div style="margin-bottom: 6px;">How would you describe your speech patterns regarding Great America?</div>
+                <div style="margin-bottom: 8px;">
+                    <input type="checkbox"> Always positive &nbsp;
+                    <input type="checkbox"> Mostly positive &nbsp;
+                    <input type="checkbox"> Balanced &nbsp;
+                    <input type="checkbox"> Critical
+                </div>
+                <div style="margin-bottom: 6px;">Rate your agreement with Great America policies: __________%</div>
+                <div style="margin-bottom: 6px;">How often do you smile in public spaces?</div>
+                <div style="margin-bottom: 8px;">
+                    <input type="checkbox"> Constantly &nbsp;
+                    <input type="checkbox"> Frequently &nbsp;
+                    <input type="checkbox"> Regularly &nbsp;
+                    <input type="checkbox"> Occasionally &nbsp;
+                    <input type="checkbox"> Rarely
+                </div>
+                <hr>
+                <div style="margin-bottom: 8px;"><strong>Behavioral Analysis</strong></div>
+                <div style="margin-bottom: 6px;">Have you reported any concerning behavior by fellow citizens?</div>
+                <div style="margin-bottom: 8px;">
+                    <input type="checkbox"> Yes, actively &nbsp;
+                    <input type="checkbox"> Yes, when necessary &nbsp;
+                    <input type="checkbox"> Would if observed &nbsp;
+                    <input type="checkbox"> Prefer not to
+                </div>
+                <div style="margin-bottom: 6px;">Rate your emotional stability throughout the day: __________%</div>
+                <div style="margin-bottom: 6px;">Do you regularly consume Great America approved media?</div>
+                <div style="margin-bottom: 8px;">
+                    <input type="checkbox"> Exclusively &nbsp;
+                    <input type="checkbox"> Primarily &nbsp;
+                    <input type="checkbox"> Regularly &nbsp;
+                    <input type="checkbox"> Occasionally &nbsp;
+                    <input type="checkbox"> Rarely
+                </div>
+                <hr>
+                <div style="margin-bottom: 10px; font-size: 11px; color: #D93B3B;">Your honest responses strengthen our collective security. Your compliance ensures your safety and your freedom to serve faith, family, and country.</div>
+            </form>
+        </div>
+
+        <button class="print-button" id="printAssessmentBtn" style="margin: 20px auto 0 auto; display: block;">🖨️ PRINT BLANK ASSESSMENT</button>
+
         <div class="footer">
             <div style="font-size: 14px; font-weight: 600; color: var(--corporate-slate); margin-bottom: 8px; display: flex; align-items: center; justify-content: center;">
                 <img src="assets/stars-and-bars.png" alt="Great America" class="ga-logo-small">
@@ -347,7 +426,46 @@
         </div>
     </div>
 
+    <style>
+        /* Print version styles */
+        .print-assessment {
+            display: none;
+            max-width: 700px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 24px 32px 18px 32px;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(26,30,33,0.10);
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+        }
+        @media print {
+            body * {
+                visibility: hidden !important;
+            }
+            .print-assessment, .print-assessment * {
+                visibility: visible !important;
+            }
+            .print-assessment {
+                display: block !important;
+                position: absolute;
+                left: 0; right: 0; top: 0;
+                margin: 0 auto;
+                box-shadow: none;
+                page-break-after: avoid;
+            }
+            .print-button {
+                display: none !important;
+            }
+        }
+    </style>
+
     <script>
+        // Print blank assessment form
+        document.getElementById('printAssessmentBtn').onclick = function() {
+            window.print();
+        };
+
         // Update slider values in real-time
         const enthusiasmSlider = document.getElementById('enthusiasmSlider');
         const enthusiasmValue = document.getElementById('enthusiasmValue');
