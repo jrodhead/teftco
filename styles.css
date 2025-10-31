@@ -147,13 +147,33 @@ body {
 
 .form-select {
     width: 100%;
-    padding: 12px;
-    border: 1px solid var(--sterile-silver);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: var(--compliance-white, #F2F4F6);
+    border: 1.5px solid var(--corporate-slate, #2B3A42);
     border-radius: 6px;
+    padding: 10px 36px 10px 12px;
     font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    background-color: white;
+    font-size: 15px;
+    color: var(--corporate-slate, #2B3A42);
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(43,58,66,0.04);
+    position: relative;
     cursor: pointer;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%233E73A5" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 18px 18px;
+    background-color: white;
+}
+.form-select:focus {
+    border-color: var(--control-blue, #3E73A5);
+    box-shadow: 0 0 0 2px rgba(62,115,165,0.12);
+}
+select::-ms-expand {
+    display: none;
 }
 
 .form-row {

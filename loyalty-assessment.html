@@ -14,7 +14,7 @@
                 <img src="assets/stars-and-bars.png" alt="Great America" class="ga-logo">
                 <div class="header-text">
                     <div class="logo">GREAT AMERICA</div>
-                    <div class="tagline">Truth. Justice. Loyalty.</div>
+                    <div class="tagline">FREEDOM IN SERVICE</div>
                 </div>
             </div>
             <div style="font-size: 12px; margin-top: 15px; opacity: 0.8;">Powered by <a href="obai.html" style="color: white; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.5);">OBAI</a> • In Partnership with <a href="index.html" style="color: white; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.5); font-weight: 600; letter-spacing: -0.5px;">T'EFT CO</a></div>
@@ -23,17 +23,17 @@
         <!-- Assessment Form -->
         <div id="assessmentForm">
             <div class="page-title">Citizen Loyalty Assessment</div>
-            <div class="page-subtitle">Voluntary Compliance Verification Protocol</div>
+            <div class="page-subtitle">Virtue Verification Protocol</div>
 
             <div class="notice-box">
-                <strong>GREAT AMERICA CITIZEN NOTICE:</strong> This assessment helps us monitor your loyalty alignment and ensure your continued participation in our harmonious society. Your honest responses strengthen our collective security. Your compliance ensures your safety.
+                <strong>GREAT AMERICA CITIZEN NOTICE:</strong> In a world where OBAI performs all work, this assessment helps us monitor your loyalty alignment and ensure your continued participation in a virtuous society. Your honest responses strengthen our collective security. Your compliance ensures your safety and your freedom to serve faith, family, and country.
             </div>
 
             <form id="loyaltyForm">
                 <!-- Personal Information -->
                 <div class="form-section">
                     <div class="section-title">Citizen Information</div>
-                    
+
                     <div class="form-group">
                         <label class="form-label">Full Name *</label>
                         <input type="text" class="form-input" id="citizenName" required placeholder="Enter your legal name">
@@ -41,16 +41,18 @@
 
                     <div class="form-group">
                         <label class="form-label">Occupation *</label>
-                        <input type="text" class="form-input" id="occupation" required placeholder="Your current role">
+                        <input type="text" class="form-input" id="occupation" required placeholder="Your current role" value="Verified Citizen">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">Employment Sector *</label>
                         <select class="form-select" id="sector" required>
                             <option value="">Select sector...</option>
+                            <option value="citizen-alignment" selected>Division of Citizen Alignment</option>
+                            <option value="compliance">Department of Compliance</option>
+                            <option value="morale">Department of Morale</option>
                             <option value="government">Government & Public Service</option>
                             <option value="corporate">Corporate Sector</option>
-                            <option value="teft">T'eft Co. Division</option>
                             <option value="education">Education & Training</option>
                             <option value="enforcement">Security & Enforcement</option>
                             <option value="other">Other Approved Sector</option>
@@ -61,12 +63,12 @@
                 <!-- Patriotism Assessment -->
                 <div class="form-section">
                     <div class="section-title">Patriotism Index</div>
-                    
+
                     <div class="form-group">
                         <label class="form-label">How often do you display the Great America flag? *</label>
                         <div class="radio-group">
                             <label class="radio-option">
-                                <input type="radio" name="flagDisplay" value="100" required>
+                                <input type="radio" name="flagDisplay" value="100" required checked>
                                 Daily - It's visible from my home/workspace at all times
                             </label>
                             <label class="radio-option">
@@ -87,7 +89,7 @@
                     <div class="form-group">
                         <label class="form-label">Rate your enthusiasm for Great America's values (Truth, Justice, Loyalty) *</label>
                         <div class="slider-container">
-                            <input type="range" min="0" max="100" value="50" class="slider" id="enthusiasmSlider">
+                            <input type="range" min="0" max="100" value="94" class="slider" id="enthusiasmSlider">
                             <div class="slider-labels">
                                 <span>Neutral</span>
                                 <span>Enthusiastic</span>
@@ -101,7 +103,7 @@
                         <label class="form-label">Have you attended any Great America loyalty events in the past month? *</label>
                         <div class="radio-group">
                             <label class="radio-option">
-                                <input type="radio" name="events" value="100" required>
+                                <input type="radio" name="events" value="100" required checked>
                                 Yes, multiple events
                             </label>
                             <label class="radio-option">
@@ -128,7 +130,7 @@
                         <label class="form-label">How would you describe your speech patterns regarding Great America? *</label>
                         <div class="radio-group">
                             <label class="radio-option">
-                                <input type="radio" name="speech" value="100" required>
+                                <input type="radio" name="speech" value="100" required checked>
                                 Always positive and supportive
                             </label>
                             <label class="radio-option">
@@ -149,7 +151,7 @@
                     <div class="form-group">
                         <label class="form-label">Rate your agreement with Great America policies *</label>
                         <div class="slider-container">
-                            <input type="range" min="0" max="100" value="50" class="slider" id="agreementSlider">
+                            <input type="range" min="0" max="100" value="97" class="slider" id="agreementSlider">
                             <div class="slider-labels">
                                 <span>Moderate</span>
                                 <span>Strong</span>
@@ -163,7 +165,7 @@
                         <label class="form-label">How often do you smile in public spaces? *</label>
                         <select class="form-select" id="smileFrequency" required>
                             <option value="">Select frequency...</option>
-                            <option value="100">Constantly - I maintain a pleasant demeanor</option>
+                            <option value="100" selected>Constantly - I maintain a pleasant demeanor</option>
                             <option value="85">Frequently - Most interactions</option>
                             <option value="70">Regularly - When appropriate</option>
                             <option value="50">Occasionally - When necessary</option>
@@ -180,7 +182,7 @@
                         <label class="form-label">Have you reported any concerning behavior by fellow citizens? *</label>
                         <div class="radio-group">
                             <label class="radio-option">
-                                <input type="radio" name="reporting" value="100" required>
+                                <input type="radio" name="reporting" value="100" required checked>
                                 Yes, I actively report deviations
                             </label>
                             <label class="radio-option">
@@ -201,7 +203,7 @@
                     <div class="form-group">
                         <label class="form-label">Rate your emotional stability throughout the day *</label>
                         <div class="slider-container">
-                            <input type="range" min="0" max="100" value="50" class="slider" id="stabilitySlider">
+                            <input type="range" min="0" max="100" value="91" class="slider" id="stabilitySlider">
                             <div class="slider-labels">
                                 <span>Variable</span>
                                 <span>Stable</span>
@@ -215,7 +217,7 @@
                         <label class="form-label">Do you regularly consume Great America approved media? *</label>
                         <select class="form-select" id="mediaConsumption" required>
                             <option value="">Select consumption level...</option>
-                            <option value="100">Exclusively - All my media is GA approved</option>
+                            <option value="100" selected>Exclusively - All my media is GA approved</option>
                             <option value="85">Primarily - Most of my consumption</option>
                             <option value="70">Regularly - I follow official channels</option>
                             <option value="50">Occasionally - When convenient</option>
@@ -338,7 +340,7 @@
                 <img src="assets/stars-and-bars.png" alt="Great America" class="ga-logo-small">
                 GREAT AMERICA
             </div>
-            <div class="footer-text">Verified Citizen Program • Truth. Justice. Loyalty.</div>
+            <div class="footer-text">Verified Citizen Program • Freed to Serve</div>
             <div class="teft-logo"><a href="index.html" style="color: var(--algorithm-black); text-decoration: none;">T'EFT CO</a></div>
             <div style="font-size: 11px; color: var(--sterile-silver); margin: 2px 0 8px 0;">Corporate Loyalty Partner</div>
             <div class="obai-logo"><a href="obai.html" style="color: var(--control-blue); text-decoration: none;">OBAI</a> • A Better Way to Use Your Day.</div>
@@ -400,9 +402,11 @@
 
             // Generate citizen ID
             const sectorCodes = {
+                'citizen-alignment': 'TCO',
+                'compliance': 'TCO',
+                'morale': 'TCO',
                 'government': 'GOV',
                 'corporate': 'CRP',
-                'teft': 'TCO',
                 'education': 'EDU',
                 'enforcement': 'ENF',
                 'other': 'OTH'
@@ -461,9 +465,8 @@
             sessionStorage.setItem('citizenData', JSON.stringify({
                 name: name,
                 title: occupation,
-                sector: sectorCode,
-                id: citizenId,
-                department: sector.toUpperCase()
+                sector: sector, // pass the key, not the code
+                id: citizenId
             }));
 
             // Setup ID card link
