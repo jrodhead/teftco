@@ -315,7 +315,8 @@
         <div class="card-preview-container" id="cardPreview">
             <div class="card-preview-title">Your Official ID Card</div>
 
-            <div class="card-wrapper">
+            <div class="card-wrapper" style="display: flex; flex-direction: column; align-items: center; gap: 32px;">
+                <!-- Original Card -->
                 <div class="id-card">
                     <!-- Card Header -->
                     <div class="card-header">
@@ -350,6 +351,44 @@
                     <div class="card-footer">
                         <div class="card-teft-logo">T'EFT CO</div>
                         <div class="card-tagline">Your Loyalty Is Our Legacy</div>
+                    </div>
+                </div>
+                <!-- White Background Card -->
+                <div class="id-card id-card-white" style="background: #fff; color: var(--corporate-slate); box-shadow: 0 8px 24px rgba(26,30,33,0.12);">
+                    <!-- Card Header -->
+                    <div class="card-header" style="background: #f2f4f6; color: var(--corporate-slate); border-bottom: 2px solid var(--control-blue);">
+                        <div class="card-header-left">
+                            <div class="card-ga-text" style="color: var(--corporate-slate);">GREAT AMERICA</div>
+                            <div class="card-ga-motto" style="color: var(--control-blue);">FREEDOM IN SERVICE</div>
+                        </div>
+                        <div class="card-stars-bars">
+                            <!-- Use CSS filter to recolor logo for white card -->
+                            <img src="assets/stars-and-bars.png" alt="Great America" style="filter: invert(36%) sepia(41%) saturate(1162%) hue-rotate(176deg) brightness(92%) contrast(92%);">
+                        </div>
+                    </div>
+
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="card-left">
+                            <div class="card-info">
+                                <div class="card-name" id="cardNameWhite" style="color: var(--corporate-slate);">NAME</div>
+                                <div class="card-title" id="cardTitleWhite" style="color: var(--corporate-slate);">TITLE</div>
+                                <div class="card-department" id="cardDepartmentWhite" style="color: var(--signal-red);">DEPARTMENT</div>
+                            </div>
+                            <div class="card-id" id="cardIdWhite" style="background: #e0e3e7; color: var(--corporate-slate);">GA-XXX-000000</div>
+                        </div>
+                        <div class="card-right">
+                            <div class="qr-container" style="background: #fff; border: 1px solid #e0e3e7;">
+                                <div id="qrcodeWhite"></div>
+                            </div>
+                            <div class="obai-badge" style="color: var(--control-blue);">OBAI VERIFIED</div>
+                        </div>
+                    </div>
+
+                    <!-- Card Footer -->
+                    <div class="card-footer" style="background: #f2f4f6; color: var(--corporate-slate);">
+                        <div class="card-teft-logo" style="color: var(--corporate-slate);">T'EFT CO</div>
+                        <div class="card-tagline" style="color: var(--control-blue);">Your Loyalty Is Our Legacy</div>
                     </div>
                 </div>
             </div>
@@ -438,22 +477,36 @@
 
             const fullId = `GA-${sector}-${idNumber}`;
 
-            // Update card display
+
+            // Update card display (both versions)
             document.getElementById('cardName').textContent = name.toUpperCase();
             document.getElementById('cardTitle').textContent = title;
             document.getElementById('cardDepartment').textContent = department;
             document.getElementById('cardId').textContent = fullId;
 
-            // Generate QR code
-            const qrContainer = document.getElementById('qrcode');
-            qrContainer.innerHTML = ''; // Clear existing QR code
+            document.getElementById('cardNameWhite').textContent = name.toUpperCase();
+            document.getElementById('cardTitleWhite').textContent = title;
+            document.getElementById('cardDepartmentWhite').textContent = department;
+            document.getElementById('cardIdWhite').textContent = fullId;
 
-            // QR code now encodes the citizen ID page URL
+            // Generate QR codes (both versions)
+            const qrContainer = document.getElementById('qrcode');
+            qrContainer.innerHTML = '';
             new QRCode(qrContainer, {
                 text: "https://jrodhead.github.io/teftco/loyalty-assessment.html",
                 width: 80,
                 height: 80,
                 colorDark: "#1A1E21",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+            const qrContainerWhite = document.getElementById('qrcodeWhite');
+            qrContainerWhite.innerHTML = '';
+            new QRCode(qrContainerWhite, {
+                text: "https://jrodhead.github.io/teftco/loyalty-assessment.html",
+                width: 80,
+                height: 80,
+                colorDark: "#3E73A5",
                 colorLight: "#ffffff",
                 correctLevel: QRCode.CorrectLevel.H
             });
