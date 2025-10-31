@@ -82,7 +82,13 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
+        }
+        /* Show white logo on color card, blue logo on white card */
+        .id-card:not(.id-card-white) .card-stars-bars img {
             filter: brightness(0) invert(1);
+        }
+        .id-card-white .card-stars-bars img {
+            filter: none;
         }
 
         /* Card body */
@@ -362,8 +368,7 @@
                             <div class="card-ga-motto" style="color: var(--control-blue);">FREEDOM IN SERVICE</div>
                         </div>
                         <div class="card-stars-bars">
-                            <!-- Use CSS filter to recolor logo for white card -->
-                            <img src="assets/stars-and-bars.png" alt="Great America" style="filter: invert(36%) sepia(41%) saturate(1162%) hue-rotate(176deg) brightness(92%) contrast(92%);">
+                            <img src="assets/stars-and-bars.png" alt="Great America">
                         </div>
                     </div>
 
